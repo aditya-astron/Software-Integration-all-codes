@@ -1,0 +1,8 @@
+# Dockerfile.cam-heartbeat
+FROM python:3.10-slim
+
+WORKDIR /app
+COPY . .
+ENV PYTHONUNBUFFERED=1
+
+CMD ["python", "camera_heartbeat.py"]

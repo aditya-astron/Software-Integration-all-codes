@@ -1,0 +1,13 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install deps once at build time
+RUN pip install --no-cache-dir fastapi uvicorn paho-mqtt
+
+# Copy your app
+COPY bio_ingest.py /app/bio_ingest.py
+
+EXPOSE 8000
+
+CMD ["uvicorn", "bio_ingest:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers", "--forwarded-allow-ips", "*"]

@@ -1,0 +1,8 @@
+# Dockerfile.local-weather
+FROM python:3.11-slim
+
+WORKDIR /app
+COPY local_weather.py /app/
+RUN pip install paho-mqtt requests
+
+CMD ["python", "local_weather.py"]

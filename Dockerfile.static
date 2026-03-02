@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+RUN npm install express
+
+COPY static-files ./static-files
+
+# Add server script
+COPY serve.js .
+
+EXPOSE 5000
+
+CMD ["node", "serve.js"]

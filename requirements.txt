@@ -1,0 +1,8 @@
+cryptography==42.*
+influxdb-client
+fastapi
+uvicorn[standard]
+influxdb-client
+pydantic
+python-multipart
+paho-mqtt==1.6.1

@@ -1,0 +1,18 @@
+# =======================================
+# 🛰️ MediaMTX minimal config (working version)
+# =======================================
+
+rtsp: yes
+rtmp: yes
+hls: yes
+webrtc: yes
+
+paths:
+  internal_cam1:
+    source: rtsp://admin:Amorfati%402025@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0
+
+  internal_cam2:
+    source: rtsp://admin:Amorfati%402025@192.168.1.108:554/cam/realmonitor?channel=2&subtype=0
+
+  external_cam:
+    source: rtsp://admin:Amorfati%402025@192.168.1.108:554/cam/realmonitor?channel=3&subtype=0

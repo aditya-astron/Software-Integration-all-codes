@@ -1,0 +1,15 @@
+# 🛰️ EFN Server (Python FastAPI)
+FROM python:3.11-slim
+
+WORKDIR /app
+COPY . /app
+
+# Install dependencies and certificates
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential curl \
+    && pip install --upgrade pip setuptools wheel certifi \
+    && pip install --no-cache-dir "influxdb-client>=1.43.0" fastapi uvicorn requests paho-mqtt python-multipart \
+    && rm -rf /var/lib/apt/lists/*
+
+EXPOSE 8000
+
+CMD ["uvicorn", "efn_server:app", "--host", "0.0.0.0", "--port", "8000"]
